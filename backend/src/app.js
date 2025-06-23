@@ -8,7 +8,7 @@ const app = express()
 // Environment-based CORS configuration
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://fullstack-open-cart-dn9j.vercel.app', // your Vercel frontend
+  'https://fullstack-open-cart-dn9j-git-main-souravdascs-projects.vercel.app', // your Vercel frontend
 ];
 
 // ✅ CORS Middleware - production safe

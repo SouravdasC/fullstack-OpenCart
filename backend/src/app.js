@@ -51,7 +51,7 @@ app.use("/api/v1", orderRouter)
 app.use('/api/v1', paymentRouter)
 
 // for admin dashboard
-app.use("/api/v1/", dashboradRouter)
+app.use("/api/v1", dashboradRouter)
 
 //for contact
 app.use('/api/v1', contactdRouter)

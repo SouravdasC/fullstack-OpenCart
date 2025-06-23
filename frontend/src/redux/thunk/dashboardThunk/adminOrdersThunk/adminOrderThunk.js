@@ -4,7 +4,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 // all orders
 export const getAllOrders = createAsyncThunk('get/orders', async ({ page = 1 }, thunkAPI) => {
   try {
-    const { data } = await axios.get(`/api/v1//admin/orders?page=${page}`);
+    const { data } = await axios.get(`/api/v1/admin/orders?page=${page}`);
     return data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response?.data?.message || error.message);

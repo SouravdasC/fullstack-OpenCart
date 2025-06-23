@@ -1,5 +1,5 @@
+import axios from '@/utilis/axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 
 export const addItemsToCart = createAsyncThunk(
   'addItemsToCart/cart',

@@ -1,5 +1,5 @@
+import axios from '@/utilis/axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 
 // Get all admin products
 export const fetchAdminProducts = createAsyncThunk(

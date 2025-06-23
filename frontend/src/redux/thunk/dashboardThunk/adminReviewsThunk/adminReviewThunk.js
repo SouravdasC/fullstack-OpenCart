@@ -1,5 +1,6 @@
 // src/redux/thunk/dashboardThunk/adminReviewThunks.js
-import axios from 'axios';
+
+import axios from '@/utilis/axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 // Get all reviews of a specific product

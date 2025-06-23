@@ -1,5 +1,5 @@
+import axios from '@/utilis/axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 
 //get all user
 export const getAllUsers = createAsyncThunk('all/user', async ({ page = 1 }, thunkAPI) => {

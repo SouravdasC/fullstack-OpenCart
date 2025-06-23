@@ -1,5 +1,5 @@
+import axios from '@/utilis/axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 
 // all orders
 export const getAllOrders = createAsyncThunk('get/orders', async ({ page = 1 }, thunkAPI) => {

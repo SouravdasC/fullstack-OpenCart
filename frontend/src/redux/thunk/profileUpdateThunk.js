@@ -1,5 +1,5 @@
+import axios from '@/utilis/axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 
 // update profile
 export const updateProfile = createAsyncThunk('update/profile', async (userData, thunkAPI) => {

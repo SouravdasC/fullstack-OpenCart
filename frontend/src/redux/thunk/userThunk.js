@@ -1,5 +1,6 @@
+import axios from '@/utilis/axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+// import axios from '../../utilis/axios'
 
 // login user
 export const login = createAsyncThunk('login/user', async ({ email, password }, thunkAPI) => {

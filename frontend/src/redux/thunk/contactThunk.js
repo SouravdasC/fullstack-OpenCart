@@ -1,6 +1,6 @@
 // redux/thunk/contactThunk.js
+import axios from '@/utilis/axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 
 // create message
 export const submitContactMessage = createAsyncThunk(

@@ -1,5 +1,5 @@
+import axios from '@/utilis/axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 
 // forgot password
 export const forgotPassword = createAsyncThunk('forgot/password', async (email, thunkAPI) => {

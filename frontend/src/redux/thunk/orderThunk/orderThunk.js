@@ -1,5 +1,5 @@
+import axios from '@/utilis/axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 
 // create new order
 export const createOrder = createAsyncThunk('create/order', async (orderData, thunkAPI) => {

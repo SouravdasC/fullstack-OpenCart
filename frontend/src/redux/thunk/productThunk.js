@@ -1,5 +1,6 @@
+import axios from '@/utilis/axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+
 
 // Fetch all products
 export const getProduct = createAsyncThunk('products/fetchAll', async (params = {}, thunkAPI) => {

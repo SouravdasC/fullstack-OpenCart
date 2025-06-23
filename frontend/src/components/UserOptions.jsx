@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '@/redux/thunk/userThunk';
-import profile from '../images/profile.png';
+import profile from '../images/Profile.png';
 
 const UserOptions = ({ user }) => {
   const [open, setOpen] = useState(false);

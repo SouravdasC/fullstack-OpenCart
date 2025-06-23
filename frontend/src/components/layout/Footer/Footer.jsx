@@ -1,5 +1,5 @@
 import React from 'react';
-import playStore from '../../../images/playstore.png';
+import playStore from '../../../images/Appstore.png';
 import appStore from '../../../images/appstore.png';
 import { Link } from 'react-router-dom';
 

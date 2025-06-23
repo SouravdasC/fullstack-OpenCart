@@ -6,22 +6,21 @@ import cors from 'cors';
 const app = express()
 
 // Environment-based CORS configuration
-const allowedOrigins =
-  process.env.NODE_ENV === "production"
-    ? ["https://fullstack-open-cart-dn9j.vercel.app"] // ✅ Replace with your actual Vercel domain
-    : ["http://localhost:5173"];
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://fullstack-open-cart-dn9j.vercel.app', // your Vercel frontend
+];
 
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      }
-      return callback(new Error("Not allowed by CORS"));
-    },
-    credentials: true,
-  })
-);
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true, // <== MUST HAVE
+}));
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))

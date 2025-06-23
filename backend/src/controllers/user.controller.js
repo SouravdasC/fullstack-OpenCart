@@ -56,7 +56,7 @@ const registerUser = errorAsynHandler(async (req, res, next) => {
 const loginUser = errorAsynHandler(async (req, res, next) => {
   const { email, password } = req.body
 
-  if (!(email || password)) {
+  if (!email || !password) {
     return next(new ErrorHandler(400, "Please enter email & password"));
   }
 
@@ -65,7 +65,7 @@ const loginUser = errorAsynHandler(async (req, res, next) => {
   ).select("+password")
 
   if (!user) {
-    return next(new ErrorHandler(404, "email & password not found"));
+    return next(new ErrorHandler(404, "Invalid email or password"));
   }
 
   const isPaswordMatched = await user.comparePassword(password)

@@ -13,11 +13,12 @@ import EventIcon from '@mui/icons-material/Event';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
 import { useDispatch, useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
-import axios from 'axios';
+
 import { useNavigate } from 'react-router-dom';
 import { clearError } from '@/redux/reducer/order/orderslice';
 import { createOrder } from '@/redux/thunk/orderThunk/orderThunk';
 import { SkeletonPayment } from '@/components/shimmerEffect/SkeletonPayment';
+import axios from '@/utilis/axios';
 
 const Payments = () => {
   const dispatch = useDispatch();

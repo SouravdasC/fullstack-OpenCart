@@ -21,6 +21,7 @@ export const processPayment = errorAsynHandler(async (req, res, next) => {
 })
 
 export const sendStripeApiKey = errorAsynHandler(async (req, res, next) => {
+  // console.log('Sending Stripe API Key:', process.env.STRIPE_API_KEY); // 👈 Add this
   res.status(200).json({
     stripeApiKey: process.env.STRIPE_API_KEY,
   });

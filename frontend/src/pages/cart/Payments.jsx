@@ -17,7 +17,6 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { clearError } from '@/redux/reducer/order/orderslice';
 import { createOrder } from '@/redux/thunk/orderThunk/orderThunk';
-import { SkeletonCard } from '@/components/shimmerEffect/SkeletonCard';
 import { SkeletonPayment } from '@/components/shimmerEffect/SkeletonPayment';
 
 const Payments = () => {
@@ -54,6 +53,8 @@ const Payments = () => {
 
     try {
       const { data } = await axios.post('/api/v1/payment/process', paymentData);
+
+      // console.log(data);
 
       const client_secret = data.client_secret;
 

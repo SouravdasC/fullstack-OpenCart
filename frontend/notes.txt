@@ -11,3 +11,8 @@
   res.status(statusCode)
     .cookie('token', token, options)
     .json({ success: true, user, token })
+
+
+      'https://fullstack-open-cart.vercel.app',
+  'https://fullstack-open-cart-git-main-souravdascs-projects.vercel.app',
+  'https://fullstack-open-cart-qxfpg4i11-souravdascs-projects.vercel.app'

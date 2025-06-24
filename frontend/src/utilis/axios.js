@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 export default axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:4000',
-  withCredentials: true,
+  baseURL: 'https://fullstack-opencart.onrender.com',
+  withCredentials: true, // ✅ required to send cookies
 });
 
 // import axios from 'axios';

@@ -4,11 +4,11 @@ import { ErrorHandler } from "../utils/errorHandler.js";
 import jwt from "jsonwebtoken"
 
 export const isAuthenticatedUser = errorAsynHandler(async (req, res, next) => {
-  console.log("Incoming cookies:", req.cookies);
+  console.log("🔐 Incoming cookies:", req.cookies); // ✅ debug
   const { token } = req.cookies;
 
   if (!token) {
-      console.log("❌ No token in cookies");
+
     return next(new ErrorHandler(401, "Unauthorized access. Please login."));
   }
 
@@ -18,7 +18,7 @@ export const isAuthenticatedUser = errorAsynHandler(async (req, res, next) => {
   if (!user) {
     return next(new ErrorHandler(401, "User no longer exists."));
   }
-  console.log("✅ Authenticated user:", req.user.email);
+
 
   req.user = user;
   next();

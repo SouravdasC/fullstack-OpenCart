@@ -4,14 +4,14 @@ export const jwtTokenResponse = (statusCode, user, res) => {
   
   //token
   const token = user.getJWTtoken();
-
-   const isProduction = process.env.NODE_ENV === 'production';
+  
+ const isProduction = process.env.NODE_ENV === 'production';
 
   const options = {
     httpOnly: true,
-    secure: isProduction, // 🔁 true on prod (HTTPS), false on localhost
-    sameSite: isProduction ? 'None' : 'Lax', // 🔁 Required for cross-site in prod
-    maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+    secure: isProduction,           // ✅ true for https only
+    sameSite: isProduction ? 'None' : 'Lax', // ✅ required for cross-origin
+    maxAge: 7 * 24 * 60 * 60 * 1000,
   };
 
   res

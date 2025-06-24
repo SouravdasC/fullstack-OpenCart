@@ -110,9 +110,10 @@ const CreateProduct = ({ productToEdit, onSuccess }) => {
   }, [error]);
 
   return (
-    <div className="flex flex-col md:flex-row w-full bg-gray-50 rounded shadow mb-10">
+    <div className="flex flex-col md:flex-row w-full bg-gray-50 rounded shadow mb-10 dark:bg-gray-900">
       <MetaData title={`${form._id ? 'Edit Product' : 'Create New Product'}`} />
-      <div className={`${productToEdit ? 'hidden' : 'block'} md:block`}>
+
+      <div className={` ${form._id ? 'hidden' : 'block'}`}>
         <DashboardSideBar />
       </div>
 
@@ -124,7 +125,10 @@ const CreateProduct = ({ productToEdit, onSuccess }) => {
           {loading ? (
             <Loader2 />
           ) : (
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <form
+              onSubmit={handleSubmit}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 dark:text-white"
+            >
               <input
                 name="name"
                 placeholder="Name"

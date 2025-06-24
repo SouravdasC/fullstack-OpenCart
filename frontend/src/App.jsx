@@ -11,9 +11,10 @@ import UserRoutes from './routes/UserRoutes';
 import AdminRoutes from './routes/AdminRoutes';
 import axios from './utilis/axios';
 import { Analytics } from '@vercel/analytics/react';
+import Loader2 from './components/shimmerEffect/Loader2';
 
 function App() {
-  const { isAuthenticated, user } = useSelector(state => state.user);
+  const { isAuthenticated, user, loading } = useSelector(state => state.user);
   const [stripeApiKey, setStripeApiKey] = useState();
 
   const getStripeApiKey = async () => {
@@ -30,6 +31,8 @@ function App() {
     store.dispatch(loadUser());
     getStripeApiKey();
   }, []);
+
+  if (loading) return <Loader2 />;
 
   return (
     <>

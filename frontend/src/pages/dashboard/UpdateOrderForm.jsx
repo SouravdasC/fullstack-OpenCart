@@ -40,10 +40,10 @@ const UpdateOrderForm = ({ order, onSuccess }) => {
   };
 
   return (
-    <div className="mt-10 p-6 border rounded-md shadow-md bg-white max-w-xl">
+    <div className="mt-10 p-6 border rounded-md shadow-md bg-white max-w-xl text-black">
       <h3 className="text-xl font-semibold mb-4">Update Order Status</h3>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="text-black">
         <div className="mb-4">
           <label htmlFor="status" className="block mb-1 font-medium">
             Order Status

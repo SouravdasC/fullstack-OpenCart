@@ -86,6 +86,7 @@ const ProductsList = () => {
   return (
     <div className="flex flex-col md:flex-row w-full min-h-screen bg-gray-100 dark:bg-gray-900">
       <MetaData title="Product List" />
+
       <DashboardSideBar />
 
       <main className="flex-1 p-4 sm:p-6 md:p-10 overflow-auto">
@@ -159,7 +160,7 @@ const ProductsList = () => {
                       <div className="flex justify-center gap-3">
                         <button
                           onClick={() => handleEdit(product)}
-                          className="text-blue-600 hover:text-blue-800"
+                          className="text-blue-600 hover:text-blue-800 cursor-pointer"
                           title="Edit"
                         >
                           <Pencil size={18} />

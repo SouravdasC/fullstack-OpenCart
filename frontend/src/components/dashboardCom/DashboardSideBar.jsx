@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../images/logo.png';
+import { Sparkles } from 'lucide-react';
 import { SimpleTreeView } from '@mui/x-tree-view/SimpleTreeView';
 import { TreeItem } from '@mui/x-tree-view/TreeItem';
 import { GridAddIcon, GridExpandMoreIcon } from '@mui/x-data-grid';
@@ -10,15 +10,15 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 const DashboardSideBar = () => {
   return (
     <aside className="w-64 bg-gray-900  text-white  p-4 flex flex-col gap-4 shadow-lg relative">
-      <main className="relative text-black">
+      <main className="relative text-white">
         {/* Logo */}
-        <Link to="/" className="mb-6 flex justify-center ">
-          <LazyLoadImage
-            src={logo}
-            alt="Logo"
-            className="h-16 object-contain bg-white"
-            effect="opacity"
-          />
+        <Link
+          to="/"
+          className="ml-2 text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent flex items-center gap-1"
+        >
+          <span>Open</span>
+          <span className="text-emerald-500">Cart</span>
+          <Sparkles className="w-5 h-5 text-yellow-500" />
         </Link>
 
         {/* Navigation */}

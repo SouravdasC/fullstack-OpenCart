@@ -7,24 +7,20 @@ const app = express()
 
 // Environment-based CORS configuration
 const allowedOrigins = [
-'https://fullstack-open-cart.vercel.app',
-  'https://fullstack-open-cart-git-main-souravdascs-projects.vercel.app',
-  'https://fullstack-open-cart-qxfpg4i11-souravdascs-projects.vercel.app',
-  'http://localhost:5173',
+'http://localhost:5173',
+  'https://fullstack-open-cart.vercel.app',
+  /^https:\/\/fullstack-open-cart-git-[\w-]+-souravdascs-projects\.vercel\.app$/ 
 ];
 
 // ✅ CORS Middleware
 app.use(cors({
   origin: function (origin, callback) {
-    if (!origin) return callback(null, true); // Allow non-browser clients like curl/postman
-    if (allowedOrigins.includes(origin)) {
-      console.log(`✅ Allowed CORS origin: ${origin}`);
+    if (!origin || allowedOrigins.some(o => typeof o === 'string' ? o === origin : o.test(origin))) {
       return callback(null, true);
     }
-    console.warn(`❌ Blocked CORS origin: ${origin}`);
     return callback(new Error('Not allowed by CORS'));
   },
-  credentials: true, // ✅ Necessary for sending cookies
+  credentials: true,
 }));
 
 app.use(express.json())

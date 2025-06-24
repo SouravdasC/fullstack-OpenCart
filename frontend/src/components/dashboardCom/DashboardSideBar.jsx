@@ -10,7 +10,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 const DashboardSideBar = () => {
   return (
     <aside className="w-64 bg-gray-900  text-white  p-4 flex flex-col gap-4 shadow-lg relative">
-      <main className="relative">
+      <main className="relative text-black">
         {/* Logo */}
         <Link to="/" className="mb-6 flex justify-center ">
           <LazyLoadImage

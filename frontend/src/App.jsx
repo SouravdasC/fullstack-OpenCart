@@ -10,6 +10,7 @@ import { loadUser } from './redux/thunk/userThunk';
 import UserRoutes from './routes/UserRoutes';
 import AdminRoutes from './routes/AdminRoutes';
 import axios from './utilis/axios';
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   const { isAuthenticated, user } = useSelector(state => state.user);
@@ -39,6 +40,7 @@ function App() {
         <UserRoutes stripeApiKey={stripeApiKey} />
         {/* admin  */}
         <AdminRoutes />
+        <Analytics />
       </div>
       <Footer />
     </>

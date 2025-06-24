@@ -9,8 +9,8 @@ export const jwtTokenResponse = (statusCode, user, res) => {
 
   const options = {
     httpOnly: true,
-    secure: isProduction, // ✅ only true on Render/production
-    sameSite: isProduction ? 'None' : 'Lax', // ✅ Lax for local dev
+    secure: isProduction, // 🔁 true on prod (HTTPS), false on localhost
+    sameSite: isProduction ? 'None' : 'Lax', // 🔁 Required for cross-site in prod
     maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
   };
 

@@ -8,16 +8,17 @@ const app = express()
 // Environment-based CORS configuration
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://fullstack-open-cart.vercel.app', // your Vercel frontend main domain
-  'https://fullstack-open-cart-git-main-souravdascs-projects.vercel.app',
 ];
 
 // ✅ CORS Middleware - production safe
 app.use(cors({
-  origin: allowedOrigins,
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) return callback(null, true);
+    return callback(new Error('Not allowed by CORS'));
+  },
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
 app.use(express.json())

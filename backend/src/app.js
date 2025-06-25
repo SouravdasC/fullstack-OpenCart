@@ -9,6 +9,8 @@ const app = express()
 const allowedOrigins = [
 'http://localhost:5173',
   'https://fullstack-open-cart.vercel.app',
+  'https://opencartecom.netlify.app',
+  'https://685b91b09c597645f7a7f1c2--opencartecom.netlify.app',
   /^https:\/\/fullstack-open-cart-git-[\w-]+-souravdascs-projects\.vercel\.app$/ 
 ];
 

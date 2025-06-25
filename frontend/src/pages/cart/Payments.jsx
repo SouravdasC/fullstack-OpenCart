@@ -18,7 +18,7 @@ import { useNavigate } from 'react-router-dom';
 import { clearError } from '@/redux/reducer/order/orderslice';
 import { createOrder } from '@/redux/thunk/orderThunk/orderThunk';
 import { SkeletonPayment } from '@/components/shimmerEffect/SkeletonPayment';
-import axios from '@/utilis/axios';
+import axiosInstance from '@/utilis/axios';
 
 const Payments = () => {
   const dispatch = useDispatch();
@@ -53,7 +53,7 @@ const Payments = () => {
     payBtn.current.disabled = true;
 
     try {
-      const { data } = await axios.post('/api/v1/payment/process', paymentData);
+      const { data } = await axiosInstance.post('/api/v1/payment/process', paymentData);
 
       // console.log(data);
 

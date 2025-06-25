@@ -60,7 +60,7 @@ app.use('/api/v1', paymentRouter)
 // for admin dashboard
 app.use("/api/v1", dashboradRouter)
 
-//for contact
+//for contact api
 app.use('/api/v1', contactdRouter)
 
 // 🛠 React frontend serving + SPA fallback

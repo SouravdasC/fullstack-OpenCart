@@ -2,6 +2,8 @@ import express from "express"
 import cookieParser from "cookie-parser"
 import { error } from "./middlewares/error.js"
 import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 const app = express()
 
@@ -60,6 +62,18 @@ app.use("/api/v1", dashboradRouter)
 
 //for contact
 app.use('/api/v1', contactdRouter)
+
+// 🛠 React frontend serving + SPA fallback
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../frontend/dist'))); // adjust if needed
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../frontend/dist/index.html'));
+  });
+}
+
 
 
 app.use(error)

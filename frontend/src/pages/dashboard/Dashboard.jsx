@@ -7,10 +7,11 @@ import { FaBox, FaUsers, FaShoppingCart, FaMoneyBillWaveAlt } from 'react-icons/
 import DashboardSideBar from '@/components/dashboardCom/DashboardSideBar';
 import MetaData from '@/components/layout/MetaData';
 import { registerCharts } from '@/utilis/chartConfig';
-import { fetchAdminDashboardStats } from '@/redux/thunk/dashboardThunk/adminDashboardThunk/adminDashboardThunk';
+
 import { clearDashboardError } from '@/redux/reducer/dashboard/adminDashboard/adminDashboardSlice';
 import Loader2 from '@/components/shimmerEffect/Loader2';
 import toast from 'react-hot-toast';
+import { fetchAdminDashboardStats } from '@/redux/thunk/dashboardThunk/adminDashboardThunk/adminDashboardThunk';
 
 const Dashboard = () => {
   const dispatch = useDispatch();

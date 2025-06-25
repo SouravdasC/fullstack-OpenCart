@@ -1,10 +1,10 @@
-import axios from '@/utilis/axios';
+import axiosInstance from '@/utilis/axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 // all orders
 export const getAllOrders = createAsyncThunk('get/orders', async ({ page = 1 }, thunkAPI) => {
   try {
-    const { data } = await axios.get(`/api/v1/admin/orders?page=${page}`);
+    const { data } = await axiosInstance.get(`/api/v1/admin/orders?page=${page}`);
     return data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response?.data?.message || error.message);
@@ -16,7 +16,7 @@ export const fetchSingleOrder = createAsyncThunk(
   'single/order',
   async (id, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get(`/api/v1/order/${id}`);
+      const { data } = await axiosInstance.get(`/api/v1/order/${id}`);
       return data.order;
     } catch (err) {
       return rejectWithValue(err.response?.data?.message || 'Failed to load order');
@@ -29,7 +29,7 @@ export const adminUpdateOrder = createAsyncThunk(
   'update/orders',
   async ({ id, status }, thunkAPI) => {
     try {
-      const { data } = await axios.put(`/api/v1/admin/order/${id}`, { status });
+      const { data } = await axiosInstance.put(`/api/v1/admin/order/${id}`, { status });
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response?.data?.message || error.message);
@@ -40,7 +40,7 @@ export const adminUpdateOrder = createAsyncThunk(
 // delete orders
 export const adminDeleteOrder = createAsyncThunk('delete/orders', async (id, thunkAPI) => {
   try {
-    const { data } = await axios.delete(`/api/v1/admin/order/${id}`);
+    const { data } = await axiosInstance.delete(`/api/v1/admin/order/${id}`);
     return data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response?.data?.message || error.message);

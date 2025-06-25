@@ -1,11 +1,10 @@
-import axios from '@/utilis/axios';
+import axiosInstance from '@/utilis/axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-// import axios from '../../utilis/axios'
 
 // login user
 export const login = createAsyncThunk('login/user', async ({ email, password }, thunkAPI) => {
   try {
-    const { data } = await axios.post('/api/v1/login', { email, password });
+    const { data } = await axiosInstance.post('/api/v1/login', { email, password });
     return data.user;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response?.data?.message || error.message);
@@ -15,7 +14,7 @@ export const login = createAsyncThunk('login/user', async ({ email, password }, 
 // register user
 export const register = createAsyncThunk('register/user', async (userdata, thunkAPI) => {
   try {
-    const { data } = await axios.post('/api/v1/register', userdata);
+    const { data } = await axiosInstance.post('/api/v1/register', userdata);
 
     return data.user;
   } catch (error) {
@@ -26,7 +25,7 @@ export const register = createAsyncThunk('register/user', async (userdata, thunk
 // load user
 export const loadUser = createAsyncThunk('load/user', async (_, thunkAPI) => {
   try {
-    const { data } = await axios.get('/api/v1/me');
+    const { data } = await axiosInstance.get('/api/v1/me');
     return data.user;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response?.data?.message || error.message);
@@ -36,7 +35,7 @@ export const loadUser = createAsyncThunk('load/user', async (_, thunkAPI) => {
 // logout user
 export const logout = createAsyncThunk('logout/user', async (_, thunkAPI) => {
   try {
-    await axios.get('/api/v1/logout');
+    await axiosInstance.get('/api/v1/logout');
     return true;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response?.data?.message || error.message);

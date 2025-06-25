@@ -4,6 +4,8 @@ import { ErrorHandler } from "../utils/errorHandler.js";
 import jwt from "jsonwebtoken"
 
 export const isAuthenticatedUser = errorAsynHandler(async (req, res, next) => {
+
+   let token;
  
   // Accept both header and cookie
   if (req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {

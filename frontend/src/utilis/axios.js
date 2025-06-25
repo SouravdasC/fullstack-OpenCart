@@ -1,9 +1,11 @@
 import axios from 'axios';
 
-export default axios.create({
+const axiosInstance = axios.create({
   baseURL: 'https://fullstack-opencart.onrender.com',
-  withCredentials: true, // ✅ required to send cookies
+  withCredentials: true, // ✅ ensures cookies (like JWT) are sent
 });
+
+export default axiosInstance;
 
 // import axios from 'axios';
 

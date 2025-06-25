@@ -1,4 +1,4 @@
-import axios from '@/utilis/axios';
+import axiosInstance from '@/utilis/axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 // Get all admin products
@@ -9,7 +9,7 @@ export const fetchAdminProducts = createAsyncThunk(
       const { keyword = '', page = 1 } = params;
       let link = `/api/v1/products?keyword=${keyword}&page=${page}`;
 
-      const { data } = await axios.get(link);
+      const { data } = await axiosInstance.get(link);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response?.data?.message || error.message);
@@ -22,7 +22,7 @@ export const adminCreateProduct = createAsyncThunk(
   'create/product',
   async (productData, thunkAPI) => {
     try {
-      const { data } = await axios.post('/api/v1/admin/product/new', productData);
+      const { data } = await axiosInstance.post('/api/v1/admin/product/new', productData);
       return {
         success: data.success,
         product: data.product,
@@ -38,7 +38,7 @@ export const adminUpdateProduct = createAsyncThunk(
   'update/product',
   async ({ id, updatedData }, thunkAPI) => {
     try {
-      const { data } = await axios.put(`/api/v1/admin/product/${id}`, updatedData);
+      const { data } = await axiosInstance.put(`/api/v1/admin/product/${id}`, updatedData);
       return data.product;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response?.data?.message || 'product updated failed');
@@ -49,7 +49,7 @@ export const adminUpdateProduct = createAsyncThunk(
 //delete product
 export const adminDeleteProduct = createAsyncThunk('delete/product', async (id, thunkAPI) => {
   try {
-    const { data } = await axios.delete(`/api/v1/admin/product/${id}`);
+    const { data } = await axiosInstance.delete(`/api/v1/admin/product/${id}`);
     return data.product;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response?.data?.message || 'product delete failed');

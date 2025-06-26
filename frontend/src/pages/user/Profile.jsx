@@ -99,7 +99,7 @@ const Profile = () => {
           </motion.div>
 
           {/* admin details  */}
-          <div className="text-black">
+          <div className="w-full max-w-5xl bg-white/20 dark:bg-gray-800/40 backdrop-blur-md border border-white/30 dark:border-gray-700 rounded-2xl shadow-lg p-6 md:p-10 text-gray-800 dark:text-white">
             <h1>Admin Dashboard</h1>
             <h3 className="flex items-center">
               <p>Email:</p>

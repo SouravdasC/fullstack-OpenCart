@@ -25,7 +25,7 @@ const Profile = () => {
       {loading ? (
         <SkeletonCard />
       ) : (
-        <div className="min-h-screen flex items-center justify-center px-4 py-8 bg-gradient-to-br from-gray-100 to-gray-300 dark:from-gray-900 dark:to-black">
+        <div className="min-h-screen flex flex-col items-center justify-center px-4 py-8 bg-gradient-to-br from-gray-100 to-gray-300 dark:from-gray-900 dark:to-black">
           <MetaData title={`${user?.name}'s profile`} />
 
           <motion.div
@@ -97,13 +97,17 @@ const Profile = () => {
               </motion.div>
             </div>
           </motion.div>
-          <div>
+
+          {/* admin details  */}
+          <div className="text-black">
             <h1>Admin Dashboard</h1>
-            <h3>
-              <p>Email:</p>test123@gmail.com
+            <h3 className="flex items-center">
+              <p>Email:</p>
+              <span>test123@gmail.com</span>
             </h3>
-            <h3>
-              <p>Password:</p>1234567890
+            <h3 className="flex items-center">
+              <p>Password:</p>
+              <span>1234567890</span>
             </h3>
           </div>
         </div>

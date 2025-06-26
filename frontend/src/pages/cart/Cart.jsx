@@ -70,7 +70,7 @@ const Cart = () => {
             <h2 className="text-2xl font-bold mb-6">Shopping Cart</h2>
 
             {cartItems.length === 0 ? (
-              <div className="flex flex-col justify-center items-center">
+              <div className="flex flex-col justify-center items-center text-black">
                 <p className="text-center text-gray-500">Your cart is empty.</p>
                 <Link
                   to={'/products'}

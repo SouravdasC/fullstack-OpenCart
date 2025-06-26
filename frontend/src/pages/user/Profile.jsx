@@ -26,7 +26,7 @@ const Profile = () => {
         <SkeletonCard />
       ) : (
         <div className="min-h-screen flex items-center justify-center px-4 py-8 bg-gradient-to-br from-gray-100 to-gray-300 dark:from-gray-900 dark:to-black">
-          <MetaData title={`${user.name}'s profile`} />
+          <MetaData title={`${user?.name}'s profile`} />
 
           <motion.div
             initial="hidden"
@@ -45,7 +45,7 @@ const Profile = () => {
                 className="flex flex-col items-center gap-4"
               >
                 <img
-                  src={user.avatar?.url}
+                  src={user?.avatar?.url}
                   alt="Profile"
                   className="w-32 h-32 md:w-48 md:h-48 object-cover rounded-full border-4 border-white dark:border-gray-500 shadow-lg"
                 />
@@ -66,11 +66,11 @@ const Profile = () => {
                 <div className="space-y-6">
                   <div>
                     <h4 className="text-sm font-semibold uppercase">Full Name</h4>
-                    <p className="text-gray-700 dark:text-gray-300 italic">{user.name}</p>
+                    <p className="text-gray-700 dark:text-gray-300 italic">{user?.name}</p>
                   </div>
                   <div>
                     <h4 className="text-sm font-semibold uppercase">Email</h4>
-                    <p className="text-gray-700 dark:text-gray-300 italic">{user.email}</p>
+                    <p className="text-gray-700 dark:text-gray-300 italic">{user?.email}</p>
                   </div>
                   <div>
                     <h4 className="text-sm font-semibold uppercase">Joined On</h4>
@@ -97,6 +97,15 @@ const Profile = () => {
               </motion.div>
             </div>
           </motion.div>
+          <div>
+            <h1>Admin Dashboard</h1>
+            <h3>
+              <p>Email:</p>test123@gmail.com
+            </h3>
+            <h3>
+              <p>Password:</p>1234567890
+            </h3>
+          </div>
         </div>
       )}
     </>

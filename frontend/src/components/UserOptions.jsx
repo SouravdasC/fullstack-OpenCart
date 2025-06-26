@@ -59,7 +59,7 @@ const UserOptions = ({ user }) => {
   ];
 
   // for admin
-  if (user.role === 'admin') {
+  if (user?.role === 'admin') {
     actions.unshift({ icon: <DashboardIcon />, name: 'Dashboard', func: dashboard });
   }
 
